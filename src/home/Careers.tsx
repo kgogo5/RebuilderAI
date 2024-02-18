@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 const Wrap = styled.section`
   position: relative;
   height: 372px;
-  background-image: url("/careers.png");
+  background-image: url("/images/careers.png");
   background-size: cover;
   background-clip: border-box;
   background-position: center center;
@@ -19,7 +19,7 @@ const Wrap = styled.section`
 
   @media only screen and (max-width: 600px) {
     height: 280px;
-    background-image: url("/careers_mobile.png");
+    background-image: url("/images/careers_mobile.png");
   }
 
   &:before {

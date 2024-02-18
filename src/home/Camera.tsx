@@ -219,7 +219,7 @@ export default function Camera() {
         </LeftArea>
 
         <RightArea>
-          <img src="/camera.png" alt="camera image" />
+          <img src="/images/camera.png" alt="camera image" />
 
           {screenSize !== "bigDesctop" && (
             <ButtonStyle>

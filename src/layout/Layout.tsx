@@ -7,7 +7,11 @@ import TopButton from "../components/TopButton";
 
 const Wrap = styled.div``;
 
-export default function Layout({ children }: { children: JSX.Element }) {
+export default function Layout({
+  children,
+}: {
+  children: JSX.Element | Element;
+}) {
   const setScreenSize = useSetAtom(screenSizeAtom);
   const [scrollStatus, setScrollStatus] = useState<boolean>(false);
 

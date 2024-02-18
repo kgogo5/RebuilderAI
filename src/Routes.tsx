@@ -1,10 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import App from "./App";
+import { Routes as Router, Route } from "react-router-dom";
+import Service from "./service/Service";
+import Home from "./home/Home";
 
-const routes = (
-  <Routes>
-    <Route path="/" element={<App />} />
-  </Routes>
-);
-
-export default routes;
+export default function Routes() {
+  return (
+    <>
+      <Router>
+        <Route path="/" element={<Home />} />
+        <Route path="/service" element={<Service />} />
+      </Router>
+    </>
+  );
+}

@@ -280,7 +280,7 @@ export default function Vision() {
             onContextMenu={(e: React.MouseEvent<HTMLDivElement>) =>
               e.preventDefault()
             }
-            class="video"
+            className="video"
             muted
             playing
             volume={0}

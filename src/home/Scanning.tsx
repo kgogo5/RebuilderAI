@@ -219,7 +219,7 @@ export default function Scanning() {
                 onContextMenu={(e: React.MouseEvent<HTMLDivElement>) =>
                   e.preventDefault()
                 }
-                class="video"
+                className="video"
                 muted
                 playing
                 volume={0}
@@ -282,7 +282,7 @@ export default function Scanning() {
                 onContextMenu={(e: React.MouseEvent<HTMLDivElement>) =>
                   e.preventDefault()
                 }
-                class="video"
+                className="video"
                 muted
                 playing
                 volume={0}

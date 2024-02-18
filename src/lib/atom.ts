@@ -16,3 +16,5 @@ export const updateScreenSize = (width: number) => {
   if (width >= 601 && width <= 768) return "tablet";
   return "mobile";
 };
+
+export const scrollPosition = atom(0);

@@ -124,7 +124,7 @@ export default function Visual() {
           onContextMenu={(e: React.MouseEvent<HTMLDivElement>) =>
             e.preventDefault()
           }
-          class="video"
+          className="video"
           url={url}
           muted
           playing
@@ -138,7 +138,7 @@ export default function Visual() {
           onContextMenu={(e: React.MouseEvent<HTMLDivElement>) =>
             e.preventDefault()
           }
-          class="video"
+          className="video"
           url={url}
           muted
           playing
@@ -152,7 +152,7 @@ export default function Visual() {
           onContextMenu={(e: React.MouseEvent<HTMLDivElement>) =>
             e.preventDefault()
           }
-          class="video"
+          className="video"
           url={url}
           muted
           playing
@@ -177,13 +177,7 @@ export default function Visual() {
             viewBox="0 0 55 28"
             fill="none"
           >
-            <path
-              opacity="0.8"
-              d="M5 5L27.5 24L50 5"
-              stroke="#BDC1C7"
-              stroke-width="6"
-              stroke-linecap="square"
-            />
+            <path opacity="0.8" d="M5 5L27.5 24L50 5" stroke="#BDC1C7" />
           </svg>
         </ArrowStyle>
       </TextArea>
