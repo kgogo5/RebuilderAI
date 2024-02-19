@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { screenSizeAtom } from "../lib/atom";
+import { screenSizeAtom, scrollPosition } from "../lib/atom";
 import { useAtom } from "jotai";
 import clsx from "clsx";
 
@@ -18,6 +18,15 @@ const Wrap = styled.header`
   border-bottom: 1px solid rgb(230, 232, 235);
   transition: 0.2s;
   z-index: 999;
+
+  &.black {
+    background: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+
+    & .logo path {
+      fill: rgb(255, 255, 255);
+    }
+  }
 
   @media only screen and (max-width: 768px) {
     padding: 0px 60px;
@@ -36,13 +45,12 @@ const Wrap = styled.header`
     height: 350px;
   }
 
-  & .inner {
+  & > .inner {
     padding-top: 33px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: rgb(255, 255, 255);
     z-index: 10;
 
     @media (min-width: 1200px) {
@@ -118,6 +126,12 @@ const Links = styled.ul`
   -webkit-box-align: center;
   align-items: center;
 
+  &.black {
+    & span {
+      color: rgb(255, 255, 255);
+    }
+  }
+
   & li {
     width: fit-content;
     font-weight: 500;
@@ -141,6 +155,18 @@ const TooltipIcon = styled.div`
   height: 30px;
   cursor: pointer;
   color: rgb(111, 117, 123);
+
+  &.black {
+    & svg path {
+      fill: rgb(255, 255, 255);
+    }
+
+    &:hover {
+      & svg path {
+        fill: rgb(111, 117, 123);
+      }
+    }
+  }
 
   &:hover {
     background-color: rgb(246, 247, 248);
@@ -290,6 +316,7 @@ export default function Header() {
   const { t, i18n } = useTranslation();
   const [depth, setDepth] = useState(false);
   const [screenSize] = useAtom(screenSizeAtom);
+  const [scroll] = useAtom(scrollPosition);
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -308,7 +335,11 @@ export default function Header() {
 
   return (
     <Wrap
-      className={clsx(depth ? "hover" : "", open ? "open" : "")}
+      className={clsx(
+        depth ? "hover" : "",
+        open ? "open" : "",
+        scroll < 375 ? "black" : ""
+      )}
       onMouseLeave={() => setDepth(false)}
     >
       <div className="inner">
@@ -376,7 +407,7 @@ export default function Header() {
           </DrawerButton>
         ) : (
           <>
-            <Links>
+            <Links className={scroll < 375 ? "black" : ""}>
               <li>
                 <Link
                   to="/service"
@@ -483,7 +514,7 @@ export default function Header() {
                 </TooltipWrap>
               }
             >
-              <TooltipIcon>
+              <TooltipIcon className={scroll < 375 ? "black" : ""}>
                 <svg
                   className="i18n"
                   width="20"

@@ -1,26 +1,23 @@
 import styled from "@emotion/styled";
 import Transformation from "./Transformation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Optimization from "./Optimization";
+import { scrollPosition } from "../lib/atom";
+import { useSetAtom } from "jotai";
 
 const Wrap = styled.div`
+  background: rgb(246, 247, 248);
   @media only screen and (max-width: 768px) {
     padding-top: 65px;
-  }
-
-  & .video {
-    width: 100% !important;
-    height: 58vh !important;
-    clip-path: inset(4px);
   }
 `;
 
 export default function Service() {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const setScroll = useSetAtom(scrollPosition);
 
   const handleScroll = () => {
     const position = window.scrollY;
-    setScrollPosition(position);
+    setScroll(position);
   };
 
   useEffect(() => {
@@ -35,7 +32,7 @@ export default function Service() {
     <>
       <main>
         <Wrap>
-          <Transformation scrollPosition={scrollPosition} />
+          <Transformation />
 
           <Optimization />
         </Wrap>
