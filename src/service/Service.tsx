@@ -1,24 +1,24 @@
 import styled from "@emotion/styled";
 import Transformation from "./Transformation";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import Optimization from "./Optimization";
 import { scrollPosition } from "../lib/atom";
 import { useSetAtom } from "jotai";
+import Vrin from "./Vrin";
 
 const Wrap = styled.div`
   background: rgb(246, 247, 248);
   @media only screen and (max-width: 768px) {
-    padding-top: 65px;
   }
 `;
 
 export default function Service() {
   const setScroll = useSetAtom(scrollPosition);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const position = window.scrollY;
     setScroll(position);
-  };
+  }, [setScroll]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -26,6 +26,10 @@ export default function Service() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, [handleScroll]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
   }, []);
 
   return (
@@ -35,6 +39,8 @@ export default function Service() {
           <Transformation />
 
           <Optimization />
+
+          <Vrin />
         </Wrap>
       </main>
     </>

@@ -229,22 +229,22 @@ export default function Scanning() {
             </LeftArea>
 
             <RightArea>
-              <strong>{t("scanning.text1")}</strong>
+              <strong>{t("home.scanning.text1")}</strong>
               <h2>
-                {t("scanning.text2")}
+                {t("home.scanning.text2")}
                 <br />
-                {t("scanning.text3")}
+                {t("home.scanning.text3")}
               </h2>
 
               <p>
-                {t("scanning.text4")}
+                {t("home.scanning.text4")}
                 <br />
-                {t("scanning.text5")}
+                {t("home.scanning.text5")}
               </p>
 
               <ButtonStyle>
                 <span className="text">
-                  {t("scanning.button")}
+                  {t("home.scanning.button")}
                   <svg
                     width="28"
                     height="29"
@@ -264,17 +264,17 @@ export default function Scanning() {
         ) : (
           <>
             <Conntent>
-              <strong>{t("scanning.text1")}</strong>
+              <strong>{t("home.scanning.text1")}</strong>
               <h2>
-                {t("scanning.text2")}
+                {t("home.scanning.text2")}
                 <br />
-                {t("scanning.text3")}
+                {t("home.scanning.text3")}
               </h2>
 
               <p>
-                {t("scanning.text4")}
+                {t("home.scanning.text4")}
                 <br />
-                {t("scanning.text5")}
+                {t("home.scanning.text5")}
               </p>
 
               <ReactPlayer
@@ -292,7 +292,7 @@ export default function Scanning() {
 
               <ButtonStyle className="mobile">
                 <span className="text">
-                  {t("scanning.button")}
+                  {t("home.scanning.button")}
                   <svg
                     width="28"
                     height="29"

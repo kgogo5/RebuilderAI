@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styled from "@emotion/styled";
 import { Tooltip } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { screenSizeAtom, scrollPosition } from "../lib/atom";
 import { useAtom } from "jotai";
@@ -82,6 +82,12 @@ const Wrap = styled.header`
 
     & path {
       fill: #000;
+    }
+  }
+
+  &.service {
+    &.hide {
+      display: none;
     }
   }
 `;
@@ -229,7 +235,10 @@ const DrawerButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: 600px) {
+  &.service {
+    & svg path {
+      fill: rgb(255, 255, 255);
+    }
   }
 
   .iconButton {
@@ -248,6 +257,18 @@ const DrawerMenu = styled.div`
   margin-top: -350px;
   transition: 0.2s;
   top: 0;
+
+  &.service {
+    color: rgb(255, 255, 255);
+
+    & .lang > button {
+      color: rgb(111, 117, 123);
+
+      &.active {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
 
   &.open {
     margin-top: 0;
@@ -318,6 +339,7 @@ export default function Header() {
   const [screenSize] = useAtom(screenSizeAtom);
   const [scroll] = useAtom(scrollPosition);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   const handleDrawerOpen = () => {
     open ? setOpen(false) : setOpen(true);
@@ -338,7 +360,9 @@ export default function Header() {
       className={clsx(
         depth ? "hover" : "",
         open ? "open" : "",
-        scroll < 375 ? "black" : ""
+        scroll < 375 ? "black" : "",
+        scroll > 960 ? "hide" : "",
+        location.pathname === "/service" ? "service" : ""
       )}
       onMouseLeave={() => setDepth(false)}
     >
@@ -362,7 +386,9 @@ export default function Header() {
           </svg>
         </Link>
         {screenSize === "tablet" || screenSize === "mobile" ? (
-          <DrawerButton>
+          <DrawerButton
+            className={location.pathname === "/service" ? "service" : ""}
+          >
             <button
               className="iconButton"
               color="inherit"
@@ -534,7 +560,12 @@ export default function Header() {
         )}
       </div>
 
-      <DrawerMenu className={open ? "open" : ""}>
+      <DrawerMenu
+        className={clsx(
+          open ? "open" : "",
+          location.pathname === "/service" ? "service" : ""
+        )}
+      >
         <li>
           <Link to="/service">
             <span className="title">Service</span>

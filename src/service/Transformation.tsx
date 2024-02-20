@@ -8,6 +8,16 @@ const Wrap = styled.section`
   width: 100%;
   height: 150vh;
   background: rgb(0, 0, 0);
+  overflow: hidden;
+
+  @media only screen and (max-width: 768px) {
+  }
+  & .video {
+    @media only screen and (max-width: 600px) {
+      width: 320px !important;
+      height: auto !important;
+    }
+  }
 
   &.active {
     background: linear-gradient(
@@ -24,10 +34,6 @@ const Wrap = styled.section`
       position: absolute;
       height: 150vh;
     }
-  }
-
-  @media only screen and (max-width: 768px) {
-    padding-top: 65px;
   }
 
   & > .inner {
@@ -66,6 +72,16 @@ const Text = styled.div`
     line-height: 130.5%;
     text-align: center;
     color: rgb(255, 255, 255);
+    @media only screen and (max-width: 1280px) {
+      font-size: 5.6rem;
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 4.8rem;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 2.8rem;
+      white-space: pre-wrap;
+    }
   }
 
   h2 {
@@ -75,6 +91,15 @@ const Text = styled.div`
     text-align: center;
     color: rgb(255, 255, 255);
     margin-bottom: 83px;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 42px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+    }
   }
 `;
 

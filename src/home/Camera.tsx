@@ -184,23 +184,23 @@ export default function Camera() {
     <Section>
       <HalfArea>
         <LeftArea>
-          <strong>{t("camera.text1")}</strong>
+          <strong>{t("home.camera.text1")}</strong>
           <h2>
-            {t("camera.text2")}
+            {t("home.camera.text2")}
             <br />
-            {t("camera.text3")}
+            {t("home.camera.text3")}
           </h2>
 
           <p>
-            {t("camera.text4")}
+            {t("home.camera.text4")}
             <br />
-            {t("camera.text5")}
+            {t("home.camera.text5")}
           </p>
 
           {screenSize === "bigDesctop" && (
             <ButtonStyle>
               <span className="text">
-                {t("camera.button")}
+                {t("home.camera.button")}
                 <svg
                   width="28"
                   height="29"
@@ -224,7 +224,7 @@ export default function Camera() {
           {screenSize !== "bigDesctop" && (
             <ButtonStyle>
               <span className="text">
-                {t("camera.button")}
+                {t("home.camera.button")}
                 <svg
                   width="28"
                   height="29"

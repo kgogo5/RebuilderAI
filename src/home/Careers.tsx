@@ -158,16 +158,16 @@ export default function Careers() {
     <Wrap>
       <div className="inner">
         <h2>
-          {t("careers.text1")}{" "}
+          {t("home.careers.text1")}{" "}
           {(screenSize === "tablet" || screenSize === "mobile") && <br />}
-          {t("careers.text2")}
+          {t("home.careers.text2")}
         </h2>
 
-        <p>{t("careers.text3")}</p>
+        <p>{t("home.careers.text3")}</p>
 
         <ButtonStyle>
           <span className="text">
-            {t("careers.button")}
+            {t("home.careers.button")}
             <svg
               width="28"
               height="29"

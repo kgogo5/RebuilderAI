@@ -201,11 +201,11 @@ export default function Vision() {
     <Section>
       <HalfArea>
         <LeftArea>
-          <strong>{t("vision.text1")}</strong>
+          <strong>{t("home.vision.text1")}</strong>
           <h2>
-            {t("vision.text2")}{" "}
+            {t("home.vision.text2")}{" "}
             {screenSize !== "tablet" && screenSize !== "mobile" && <br />}
-            {t("vision.text3")}
+            {t("home.vision.text3")}
           </h2>
           {screenSize !== "mobile" ? (
             <Stack>
