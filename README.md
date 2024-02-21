@@ -23,7 +23,7 @@ pnpm start
 
 개발 환경 실행 후, 브라우저에서 http://localhost:[포트번호]로 접속 or 빌드 후 프로덕션 환경 실행 후 접속
 
-혹은 vercel 빌드 링크 : [text](https://rebuilder-ai.vercel.app/service)
+혹은 vercel 빌드 링크 : [포트폴리오 링크](https://rebuilder-ai.vercel.app/service)
 
 ## 빌드 환경 : VITE 사용
 
