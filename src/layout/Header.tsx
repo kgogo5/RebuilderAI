@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styled from "@emotion/styled";
 import { Tooltip } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { screenSizeAtom, scrollPosition } from "../lib/atom";
 import { useAtom } from "jotai";
@@ -19,7 +19,7 @@ const Wrap = styled.header`
   transition: 0.2s;
   z-index: 999;
 
-  &.black {
+  &.service.black {
     background: rgb(0, 0, 0);
     border-bottom: 1px solid rgb(0, 0, 0);
 
@@ -132,7 +132,7 @@ const Links = styled.ul`
   -webkit-box-align: center;
   align-items: center;
 
-  &.black {
+  &.service.black {
     & span {
       color: rgb(255, 255, 255);
     }
@@ -162,7 +162,7 @@ const TooltipIcon = styled.div`
   cursor: pointer;
   color: rgb(111, 117, 123);
 
-  &.black {
+  &.service.black {
     & svg path {
       fill: rgb(255, 255, 255);
     }
@@ -181,6 +181,10 @@ const TooltipIcon = styled.div`
 
   & path {
     fill: rgb(111, 117, 123);
+  }
+
+  & svg path {
+    fill: rgb(0, 0, 0);
   }
 `;
 
@@ -235,9 +239,15 @@ const DrawerButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  &.service {
-    & svg path {
-      fill: rgb(255, 255, 255);
+  & svg path {
+    fill: rgb(0, 0, 0);
+  }
+
+  &.service.black {
+    & .iconButton {
+      & svg path {
+        fill: rgb(255, 255, 255);
+      }
     }
   }
 
@@ -246,6 +256,10 @@ const DrawerButton = styled.div`
     padding: 0;
     width: 100%;
     height: auto;
+
+    & svg path {
+      fill: rgb(0, 0, 0);
+    }
   }
 `;
 
@@ -258,9 +272,8 @@ const DrawerMenu = styled.div`
   transition: 0.2s;
   top: 0;
 
-  &.service {
-    color: rgb(255, 255, 255);
-
+  &.service.black {
+    color: rgb(0, 0, 0);
     & .lang > button {
       color: rgb(111, 117, 123);
 
@@ -268,6 +281,14 @@ const DrawerMenu = styled.div`
         color: rgb(255, 255, 255);
       }
     }
+
+    .title {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  &.black svg path {
+    fill: rgb(255, 255, 255);
   }
 
   &.open {
@@ -331,6 +352,10 @@ const DrawerMenu = styled.div`
       }
     }
   }
+
+  & li a.active .title {
+    font-weight: bold;
+  }
 `;
 
 export default function Header() {
@@ -387,7 +412,10 @@ export default function Header() {
         </Link>
         {screenSize === "tablet" || screenSize === "mobile" ? (
           <DrawerButton
-            className={location.pathname === "/service" ? "service" : ""}
+            className={clsx(
+              location.pathname === "/service" ? "service" : "",
+              scroll < 375 ? "black" : ""
+            )}
           >
             <button
               className="iconButton"
@@ -433,7 +461,12 @@ export default function Header() {
           </DrawerButton>
         ) : (
           <>
-            <Links className={scroll < 375 ? "black" : ""}>
+            <Links
+              className={clsx(
+                scroll < 375 ? "black" : "",
+                location.pathname === "/service" ? "service" : ""
+              )}
+            >
               <li>
                 <Link
                   to="/service"
@@ -540,7 +573,12 @@ export default function Header() {
                 </TooltipWrap>
               }
             >
-              <TooltipIcon className={scroll < 375 ? "black" : ""}>
+              <TooltipIcon
+                className={clsx(
+                  scroll < 375 ? "black" : "",
+                  location.pathname === "/service" ? "service" : ""
+                )}
+              >
                 <svg
                   className="i18n"
                   width="20"
@@ -563,28 +601,41 @@ export default function Header() {
       <DrawerMenu
         className={clsx(
           open ? "open" : "",
-          location.pathname === "/service" ? "service" : ""
+          location.pathname === "/service" ? "service" : "",
+          scroll < 375 ? "black" : ""
         )}
       >
         <li>
-          <Link to="/service">
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            to="/service"
+          >
             <span className="title">Service</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/technology">
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            to="/technology"
+          >
             <span className="title">Technology</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/about">
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            to="/about"
+          >
             <span className="title">About</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/contact">
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            to="/contact"
+          >
             <span className="title">Contact</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
           <div className="lang">

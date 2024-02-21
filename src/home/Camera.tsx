@@ -12,6 +12,8 @@ const HalfArea = styled.div`
 
   @media (max-width: 1280px) {
     margin-right: 0;
+    margin-top: 200px;
+    margin-bottom: 200px;
     align-items: center;
     flex-direction: column;
   }
@@ -107,7 +109,7 @@ const RightArea = styled.div`
     text-align: center;
 
     & img {
-      margin: 100px 0px 60px;
+      margin: 0 0px 60px;
       width: 100%;
       display: block;
     }

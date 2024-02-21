@@ -113,9 +113,14 @@ const HalfArea = styled.div`
 `;
 
 const LeftArea = styled.div`
-  width: 100%;
-  max-height: 368px;
   margin: 0px 73px 0px 0px;
+  max-height: 368px;
+  width: 100%;
+
+  @media only screen and (max-width: 1280px) {
+    max-height: 532px;
+    margin: 100px 0px 60px;
+  }
 `;
 
 const RightArea = styled.div`

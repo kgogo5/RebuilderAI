@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useAtom } from "jotai";
 import ReactPlayer from "react-player";
 import { scrollPosition } from "../lib/atom";
+import clsx from "clsx";
 
 const Wrap = styled.section`
   position: relative;
@@ -66,6 +67,29 @@ const Text = styled.div`
     position: absolute;
   }
 
+  &.textChange {
+    h1 {
+      font-weight: 800;
+      font-size: 9.58rem;
+      line-height: 130.5%;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      white-space: pre-wrap;
+
+      @media only screen and (max-width: 1280px) {
+        font-size: 5.6rem;
+      }
+
+      @media only screen and (max-width: 768px) {
+        font-size: 4.8rem;
+      }
+
+      @media only screen and (max-width: 600px) {
+        font-size: 2.8rem;
+      }
+    }
+  }
+
   h1 {
     font-weight: 800;
     font-size: 7rem;
@@ -91,6 +115,11 @@ const Text = styled.div`
     text-align: center;
     color: rgb(255, 255, 255);
     margin-bottom: 83px;
+
+    @media only screen and (max-width: 1280px) {
+      font-size: 3.2rem;
+      margin-bottom: 50px;
+    }
 
     @media only screen and (max-width: 768px) {
       margin-bottom: 42px;
@@ -124,7 +153,7 @@ export default function Transformation() {
   };
 
   return (
-    <Wrap className={scroll > 426 ? "active" : ""}>
+    <Wrap className={scroll > 631 ? "active" : ""}>
       <div className="inner" style={animationStyle}>
         <ReactPlayer
           onContextMenu={(e: React.MouseEvent<HTMLDivElement>) =>
@@ -142,12 +171,16 @@ export default function Transformation() {
       {scroll > 226 ? (
         <>
           <Text
-            className={scroll > 426 ? "active" : ""}
+            className={clsx(
+              scroll > 426 ? "active" : "",
+              scroll > 225 ? "textChange" : ""
+            )}
             style={outAnimationText}
           >
             <h2>3D Digital Transformation</h2>
             <h1>
-              The Next Generation of <br />
+              The Next Generation of
+              <br />
               Digital Transformation
             </h1>
           </Text>

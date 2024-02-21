@@ -372,7 +372,6 @@ const Layer = styled.div`
 
 export default function Optimization() {
   const { t, i18n } = useTranslation();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scroll] = useAtom(scrollPosition);
   const [screenSize] = useAtom(screenSizeAtom);
   const [mobileLayout, setMobileLayout] = useState([false, false]);

@@ -5,11 +5,13 @@ import Optimization from "./Optimization";
 import { scrollPosition } from "../lib/atom";
 import { useSetAtom } from "jotai";
 import Vrin from "./Vrin";
+import Commerce from "./Commerce";
+import Manufacture from "./Manufacture";
+import Damage from "./Damage";
+import Labeling from "./Labeling";
 
 const Wrap = styled.div`
-  background: rgb(246, 247, 248);
-  @media only screen and (max-width: 768px) {
-  }
+  background: rgb(255, 255, 255);
 `;
 
 export default function Service() {
@@ -41,6 +43,14 @@ export default function Service() {
           <Optimization />
 
           <Vrin />
+
+          <Commerce />
+
+          <Manufacture />
+
+          <Damage />
+
+          <Labeling />
         </Wrap>
       </main>
     </>
