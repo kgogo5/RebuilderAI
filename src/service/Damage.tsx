@@ -9,7 +9,7 @@ const Section = styled.section`
   height: 100%;
   margin: 0 auto;
   padding: 0 30px 200px;
-  max-width: 1280px;
+  max-width: 1200px;
   background: rgb(255, 255, 255);
   overflow: hidden;
 
@@ -28,7 +28,6 @@ const Section = styled.section`
 
 const HalfBox = styled.div`
   margin: 0 auto;
-  padding: 0 30px;
   display: flex;
   align-items: center;
 

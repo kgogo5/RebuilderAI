@@ -9,7 +9,7 @@ const Section = styled.section`
   height: 100%;
   margin: 0 auto;
   padding: 0 30px 325px;
-  max-width: 1280px;
+  max-width: 1200px;
   background: rgb(255, 255, 255);
   overflow: hidden;
 
@@ -28,7 +28,6 @@ const Section = styled.section`
 
 const HalfBox = styled.div`
   margin: 0 auto;
-  padding: 0 30px;
   display: flex;
   align-items: center;
 
@@ -72,14 +71,17 @@ const HalfBox = styled.div`
     }
   }
 
-  & .inner {
-    width: 100%;
+  & > .inner {
+    margin-left: 40px;
+
+    @media only screen and (max-width: 1280px) {
+      margin-left: 0;
+    }
   }
 `;
 
 const VideoArea = styled.div`
   position: relative;
-  margin-left: 40px;
   width: 100%;
 
   @media only screen and (max-width: 1280px) {
