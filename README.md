@@ -25,6 +25,8 @@ pnpm start
 
 혹은 vercel 빌드 링크 : [포트폴리오 링크](https://rebuilder-ai.vercel.app)
 
+home 페이지와 service(Animation 다수) 페이지가 구축 되어 있습니다.
+
 ## 빌드 환경 : VITE 사용
 
 ## **사용 라이브러리**
